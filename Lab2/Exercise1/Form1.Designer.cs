@@ -1,6 +1,6 @@
-﻿namespace Exercise1
-{
-    partial class Form1
+﻿namespace Exercise1;
+
+partial class Form1
     {
         /// <summary>
         ///  Required designer variable.
@@ -115,4 +115,3 @@
         private Button button1;
         private Button button2;
     }
-}

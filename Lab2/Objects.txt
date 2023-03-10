@@ -1,0 +1,6 @@
+﻿Laptop
+Book
+Bottle
+Pencil
+Desk
+Phone
