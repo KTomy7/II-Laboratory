@@ -25,7 +25,6 @@ public partial class Form1 : Form
         catch (Exception)
         {
             MessageBox.Show("Error reading credentials from file!");
-            throw;
         }
     }
 

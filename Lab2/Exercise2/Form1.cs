@@ -11,7 +11,7 @@ namespace Exercise2
         {
             try
             {
-                // Read the objects from a file:
+                // Read the objects from a file and add them to the listBox1
                 string[] lines = System.IO.File.ReadAllLines(@"D:\AIA\Year III\Sem2\II - Valean\Labs\II-Laboratory\Lab2\Objects.txt");
                 if (lines.Length == 0)
                 {
@@ -30,6 +30,7 @@ namespace Exercise2
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Add the selected items from the listBox1 to the listBox2
             var selectedItems = listBox1.SelectedItems;
             foreach (var item in selectedItems)
             {
@@ -39,12 +40,13 @@ namespace Exercise2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //remove from the listbox the selected item
+            //remove from the listBox2 the selected item
             listBox2.Items.Remove(listBox2.SelectedItem);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            // Close the application
             Application.Exit();
         }
     }
