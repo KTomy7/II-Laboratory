@@ -12,7 +12,7 @@ namespace Exercise2
             try
             {
                 // Read the objects from a file and add them to the listBox1
-                string[] lines = System.IO.File.ReadAllLines(@"D:\AIA\Year III\Sem2\II - Valean\Labs\II-Laboratory\Lab2\Objects.txt");
+                string[] lines = System.IO.File.ReadAllLines(@"D:\AIA\Year III\Sem2\II - Valean\Labs\II-Laboratory\Lab2\Exercise2\Objects.txt");
                 if (lines.Length == 0)
                 {
                     throw new Exception("The file is empty!");

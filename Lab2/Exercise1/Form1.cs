@@ -14,7 +14,7 @@ public partial class Form1 : Form
         try
         {
             // Read the credentials from a text file:
-            string[] lines = System.IO.File.ReadAllLines(@"D:\AIA\Year III\Sem2\II - Valean\Labs\II-Laboratory\Lab2\Credentials.txt");
+            string[] lines = System.IO.File.ReadAllLines(@"D:\AIA\Year III\Sem2\II - Valean\Labs\II-Laboratory\Lab2\Exercise1\Credentials.txt");
             if (lines.Length != 2)
             {
                 throw new Exception("Invalid credentials file!");
