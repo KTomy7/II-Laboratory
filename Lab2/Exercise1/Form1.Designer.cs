@@ -33,7 +33,6 @@ partial class Form1
             label1 = new Label();
             label2 = new Label();
             button1 = new Button();
-            button2 = new Button();
             SuspendLayout();
             // 
             // textBox1
@@ -68,25 +67,15 @@ partial class Form1
             label2.TabIndex = 3;
             label2.Text = "Password:";
             // 
-            // button1
-            // 
-            button1.Location = new Point(43, 160);
-            button1.Name = "button1";
-            button1.Size = new Size(113, 53);
-            button1.TabIndex = 4;
-            button1.Text = "Load credentials";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // button2
             // 
-            button2.Location = new Point(203, 160);
-            button2.Name = "button2";
-            button2.Size = new Size(113, 53);
-            button2.TabIndex = 5;
-            button2.Text = "Login";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            button1.Location = new Point(203, 160);
+            button1.Name = "button1";
+            button1.Size = new Size(113, 53);
+            button1.TabIndex = 5;
+            button1.Text = "Login";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += Button1Click;
             // 
             // Form1
             // 
@@ -94,7 +83,6 @@ partial class Form1
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(365, 254);
             StartPosition = FormStartPosition.CenterScreen;
-            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -113,5 +101,4 @@ partial class Form1
         private Label label1;
         private Label label2;
         private Button button1;
-        private Button button2;
     }

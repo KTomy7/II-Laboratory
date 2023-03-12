@@ -1,6 +1,6 @@
 ﻿namespace Lab1
 {
-    class Program
+    static class Program
     {
         static void Main(string[] args)
         {
@@ -9,7 +9,7 @@
 
             // Exercitiul 2:
             Console.Write("Enter two numbers: ");
-            string[] numbers = Console.ReadLine().Split(' ');
+            string[] numbers = Console.ReadLine()!.Split(' ');
             Calculator.Print(int.Parse(numbers[0]), int.Parse(numbers[1]));
 
             // Exercitiul 3:
@@ -27,7 +27,7 @@
         }
 
         // Exercitiul 1:
-        public static void FibonacciSequence(int n)
+        private static void FibonacciSequence(int n)
         {
             if (n == 0)
             {
@@ -55,28 +55,29 @@
         }
 
         // Exercitiul 3:
-        public static void CelsiusToFahrenheit()
+        private static void CelsiusToFahrenheit()
         {
             Console.Write("Enter the temperature in Celsius: ");
-            float celcius = float.Parse(Console.ReadLine());
+            float celcius = float.Parse(Console.ReadLine()!);
             float fahrenheit = celcius * 9 / 5 + 32;
-            Console.WriteLine("Temperature in Fahrenheit is: {0}", fahrenheit.ToString("0.00"));
+            Console.WriteLine("Temperature in Fahrenheit is: {0:0.00}", fahrenheit);
             Console.WriteLine();
         }
-        public static void FahrenheitToCelsius()
+
+        private static void FahrenheitToCelsius()
         {
             Console.Write("Enter the temperature in Fahrenheit: ");
-            float fahrenheit = float.Parse(Console.ReadLine());
+            float fahrenheit = float.Parse(Console.ReadLine()!);
             float celcius = (fahrenheit - 32) * 5 / 9;
-            Console.WriteLine("Temperature in Celcius is: {0}", celcius.ToString("0.00"));
+            Console.WriteLine("Temperature in Celcius is: {0:0.00}", celcius);
             Console.WriteLine();
         }
 
         // Exercitiul 5:
-        public static void ComputeMean()
+        private static void ComputeMean()
         {
             Console.Write("Enter a string of numbers: ");
-            var numbers = Console.ReadLine().Split(' ').ToList();
+            var numbers = Console.ReadLine()!.Split(' ').ToList();
 
             double geometricMean = 1;
             double arithmeticMean = 0;
@@ -88,10 +89,10 @@
             }
 
             geometricMean = Math.Pow(geometricMean, 1.0 / numbers.Count());
-            arithmeticMean = arithmeticMean / numbers.Count();
+            arithmeticMean /= numbers.Count();
 
-            Console.WriteLine("The geometric mean is: {0}", geometricMean.ToString("0.00"));
-            Console.WriteLine("The arithmetic mean is: {0}", arithmeticMean.ToString("0.00"));
+            Console.WriteLine("The geometric mean is: {0:0.00}", geometricMean);
+            Console.WriteLine("The arithmetic mean is: {0:0.00}", arithmeticMean);
         }
     }
 }
