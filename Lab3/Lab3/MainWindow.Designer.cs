@@ -164,7 +164,7 @@
 
         #endregion
 
-        private ListBox listBox_Univ;
+        internal ListBox listBox_Univ;
         private ListBox listBox_Fac;
         private TextBox textBox_City;
         private TextBox textBox_CodeUniv;

@@ -36,13 +36,13 @@ namespace Lab3
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            var createForm = new CreateForm();
+            var createForm = new CreateForm(this);
             createForm.ShowDialog();
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            var updateForm = new UpdateForm();
+            var updateForm = new UpdateForm(this);
             updateForm.ShowDialog();
         }
 
@@ -61,15 +61,15 @@ namespace Lab3
             _dbContext.SaveChanges();
 
             // Refresh the listbox_Univ & listbox_Fac and clear the textboxes
-            listBox_Univ.Items.Clear();
-            listBox_Fac.Items.Clear();
             AddUniversitiesToListBox();
+            listBox_Fac.Items.Clear();
             textBox_City.Clear();
             textBox_CodeUniv.Clear();
         }
 
-        private void AddUniversitiesToListBox()
+        public void AddUniversitiesToListBox()
         {
+            listBox_Univ.Items.Clear();
             var universities = _dbContext.Universities.ToList();
             foreach (var university in universities)
             {
