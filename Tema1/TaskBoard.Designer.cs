@@ -1,6 +1,6 @@
 ﻿namespace Tema1;
 
-partial class Form1
+partial class TaskBoard
 {
     /// <summary>
     ///  Required designer variable.
@@ -156,7 +156,7 @@ partial class Form1
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(885, 504);
         Controls.Add(tableLayoutPanel1);
-        Name = "Form1";
+        Name = "TaskBoard";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Tema1 - TaskBoard";
         toDoPanel.ResumeLayout(false);

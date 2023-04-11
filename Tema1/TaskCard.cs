@@ -2,9 +2,9 @@
 {
     public partial class TaskCard : UserControl
     {
-        private readonly Form1 _mainForm;
+        private readonly TaskBoard _mainForm;
         private State _state;
-        public TaskCard(Form1 mainForm, string title, string description, State state)
+        public TaskCard(TaskBoard mainForm, string title, string description, State state)
         {
             InitializeComponent();
             this._mainForm = mainForm;
@@ -39,7 +39,7 @@
             taskCards.Remove(deletedTaskCard);
         
             // Reposition the remaining TaskCards
-            for (int i = 0; i < taskCards.Count; i++)
+            for (var i = 0; i < taskCards.Count; i++)
             {
                 taskCards[i].Location = new Point(0, i * 100 + deleteButton.Height + 5);
             }
@@ -47,15 +47,18 @@
 
         private void MoveButtonClick(object sender, EventArgs e)
         {
-            if (this._state == State.ToDo)
+            switch (this._state)
             {
-                RepositionTaskCards(this);
-                MoveToInProgress();
-            }
-            else if (this._state == State.InProgress)
-            { 
-                RepositionTaskCards(this);
-                MoveToDone();
+                case State.ToDo:
+                    RepositionTaskCards(this);
+                    MoveToInProgress();
+                    break;
+                case State.InProgress:
+                    RepositionTaskCards(this);
+                    MoveToDone();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -68,7 +71,7 @@
             this.moveButton.Text = "Finish";
             
             // Reposition the TaskCards
-            List<TaskCard> taskCards = new List<TaskCard>();
+            var taskCards = new List<TaskCard>();
             foreach (Control control in _mainForm.inProgressPanel.Controls)
             {
                 if (control is TaskCard taskCard)
@@ -76,7 +79,7 @@
                     taskCards.Add(taskCard);
                 }
             }
-            for (int i = 0; i < taskCards.Count; i++)
+            for (var i = 0; i < taskCards.Count; i++)
             {
                 taskCards[i].Location = new Point(0, i * 100 + deleteButton.Height + 5);
             }
@@ -92,7 +95,7 @@
             this.moveButton.Visible = false;
             
             // Reposition the TaskCards
-            List<TaskCard> taskCards = new List<TaskCard>();
+            var taskCards = new List<TaskCard>();
             foreach (Control control in _mainForm.donePanel.Controls)
             {
                 if (control is TaskCard taskCard)
@@ -100,7 +103,7 @@
                     taskCards.Add(taskCard);
                 }
             }
-            for (int i = 0; i < taskCards.Count; i++)
+            for (var i = 0; i < taskCards.Count; i++)
             {
                 taskCards[i].Location = new Point(0, i * 100 + deleteButton.Height + 5);
             }

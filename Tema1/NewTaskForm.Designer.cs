@@ -1,6 +1,6 @@
 ﻿namespace Tema1
 {
-    partial class Form2
+    partial class NewTaskForm
     {
         /// <summary>
         /// Required designer variable.
@@ -100,7 +100,7 @@
             Controls.Add(descriptionInputTextBox);
             Controls.Add(titleInputTextBox);
             Controls.Add(label1);
-            Name = "Form2";
+            Name = "NewTaskForm";
             Text = "New Task Form";
             ResumeLayout(false);
             PerformLayout();

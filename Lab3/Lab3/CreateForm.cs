@@ -7,10 +7,10 @@ namespace Lab3
     {
         private readonly Lab3DbContext _dbContext;
         private readonly MainWindow _mainWindow;
-        public CreateForm(MainWindow mainWindow)
+        public CreateForm(MainWindow mainWindow, Lab3DbContext dbContext)
         {
             InitializeComponent();
-            _dbContext = new Lab3DbContext();
+            _dbContext = dbContext;
             _mainWindow = mainWindow;
         }
 

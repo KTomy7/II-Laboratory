@@ -1,17 +1,17 @@
 namespace Tema1;
 
-public partial class Form1 : Form
+public partial class TaskBoard : Form
 {
-    public Form1()
+    public TaskBoard()
     {
         InitializeComponent();
     }
 
     private void AddToDoButtonClick(object sender, EventArgs e)
     {
-        // Creating Form2, where the user can add a new TaskCard in the "To Do" list
-        Form2 form2 = new Form2(this, State.ToDo);
-        form2.ShowDialog();
+        // Creating NewTaskForm, where the user can add a new TaskCard in the "To Do" list
+        NewTaskForm newTaskForm = new NewTaskForm(this, State.ToDo);
+        newTaskForm.ShowDialog();
     }
     
     private void ClearAllButtonClick(object sender, EventArgs e)
@@ -24,8 +24,8 @@ public partial class Form1 : Form
     
     private void AddInProgressButtonClick(object sender, EventArgs e)
     {
-        // Creating Form2, where the user can add a new TaskCard in the "In Progress" list
-        Form2 form2 = new Form2(this, State.InProgress);
-        form2.ShowDialog();
+        // Creating NewTaskForm, where the user can add a new TaskCard in the "In Progress" list
+        NewTaskForm newTaskForm = new NewTaskForm(this, State.InProgress);
+        newTaskForm.ShowDialog();
     }
 }

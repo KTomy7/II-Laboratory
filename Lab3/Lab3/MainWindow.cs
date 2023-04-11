@@ -1,4 +1,6 @@
 using DataAccess;
+using DataAccess.Models;
+using System.ComponentModel;
 
 namespace Lab3
 {
@@ -21,12 +23,13 @@ namespace Lab3
             // Retrieve all faculties of the selected university
             var faculties = _dbContext.Faculties.Where(fac => fac.UniversityCode == selectedUniversity!.Code).ToList();
 
-            // Add the names of the faculties to the listbox
-            listBox_Fac.Items.Clear();
+            // Add the names of the faculties to the dataGridView
+            var bsFaculties = new BindingList<Faculty>();
             foreach (var faculty in faculties)
             {
-                listBox_Fac.Items.Add(faculty.Name);
+                bsFaculties.Add(faculty);
             }
+            dataGridView1.DataSource = bsFaculties;
 
             // Display the selected university's information
             textBox_City.Text = selectedUniversity!.City;
@@ -36,13 +39,13 @@ namespace Lab3
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            var createForm = new CreateForm(this);
+            var createForm = new CreateForm(this, _dbContext);
             createForm.ShowDialog();
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            var updateForm = new UpdateForm(this);
+            var updateForm = new UpdateForm(this, _dbContext);
             updateForm.ShowDialog();
         }
 
@@ -60,9 +63,9 @@ namespace Lab3
             _dbContext.Universities.Remove(selectedUniversity!);
             _dbContext.SaveChanges();
 
-            // Refresh the listbox_Univ & listbox_Fac and clear the textboxes
+            // Refresh the listbox_Univ & dataGridView and clear the textboxes
             AddUniversitiesToListBox();
-            listBox_Fac.Items.Clear();
+            dataGridView1.DataSource = null;
             textBox_City.Clear();
             textBox_CodeUniv.Clear();
         }
@@ -75,6 +78,59 @@ namespace Lab3
             {
                 listBox_Univ.Items.Add(university.Name);
             }
+        }
+
+        private void deleteFacButton_Click(object sender, EventArgs e)
+        {
+            // Retrieve the selected faculty
+            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+            var selectedFacultyId = int.Parse(selectedRow.Cells[0].Value.ToString());
+            var selectedFacultyUnivCode = int.Parse(selectedRow.Cells[2].Value.ToString());
+            var selectedFaculty = _dbContext.Faculties.Find(selectedFacultyId);
+
+            // Delete the selected faculty if it exists
+            if (selectedFaculty != null)
+            {
+                _dbContext.Faculties.Remove(selectedFaculty);
+                _dbContext.SaveChanges();
+            }
+
+            // Refresh the dataGridView
+            dataGridView1.DataSource = null;
+            var faculties = _dbContext.Faculties.Where(fac => fac.UniversityCode == selectedFacultyUnivCode).ToList();
+            var bsFaculties = new BindingList<Faculty>();
+            foreach (var faculty in faculties)
+            {
+                bsFaculties.Add(faculty);
+            }
+            dataGridView1.DataSource = bsFaculties;
+        }
+
+        private void addFacButton_Click(object sender, EventArgs e)
+        {
+            // Retrieve the inputted faculty's information from the dataGridView
+            var facultyName = textBox_FacName.Text;
+            var facultyUnivCode = int.Parse(textBox_CodeUniv.Text);
+
+            // Create a new faculty and add it to the database
+            var newFaculty = new Faculty
+            {
+                Name = facultyName,
+                UniversityCode = facultyUnivCode
+            };
+            _dbContext.Faculties.Add(newFaculty);
+            _dbContext.SaveChanges();
+
+            textBox_FacName.Clear();
+            // Refresh the dataGridVieW
+            dataGridView1.DataSource = null;
+            var faculties = _dbContext.Faculties.Where(fac => fac.UniversityCode == facultyUnivCode).ToList();
+            var bsFaculties = new BindingList<Faculty>();
+            foreach (var faculty in faculties)
+            {
+                bsFaculties.Add(faculty);
+            }
+            dataGridView1.DataSource = bsFaculties;
         }
     }
 }

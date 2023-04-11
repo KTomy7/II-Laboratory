@@ -8,10 +8,10 @@ public partial class UpdateForm : Form
     private readonly Lab3DbContext _dbContext;
     private readonly MainWindow _mainWindow;
     private readonly University _selectedUniversity;
-    public UpdateForm(MainWindow mainWindow)
+    public UpdateForm(MainWindow mainWindow, Lab3DbContext dbContext)
     {
         InitializeComponent();
-        _dbContext = new Lab3DbContext();
+        _dbContext = dbContext;
         _mainWindow = mainWindow;
         
         // Retrieve the selected university
@@ -23,13 +23,13 @@ public partial class UpdateForm : Form
         textBox_City.Text = _selectedUniversity.City;
     }
 
-    private async void updateButton_Click(object sender, EventArgs e)
+    private void updateButton_Click(object sender, EventArgs e)
     {
         // Update the selected university in the database and update the listbox
         _selectedUniversity.Name = textBox_Name.Text;
         _selectedUniversity.City = textBox_City.Text;
         _dbContext.Universities.Update(_selectedUniversity);
-        await _dbContext.SaveChangesAsync();
+        _dbContext.SaveChanges();
         _mainWindow.AddUniversitiesToListBox();
         Close();
     }
