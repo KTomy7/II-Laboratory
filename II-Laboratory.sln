@@ -23,9 +23,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tema1", "Tema1\Tema1.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab3", "Lab3", "{5DC2E4A8-DE52-46D2-9004-4C1670534500}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab3", "Lab3\Lab3\Lab3.csproj", "{A4926868-F516-4F9C-8BE2-AB30A9CEA8A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab3", "Lab3\Lab3\Lab3.csproj", "{A4926868-F516-4F9C-8BE2-AB30A9CEA8A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "Lab3\DataAccess\DataAccess.csproj", "{69C597E8-A840-4894-9007-46EB63BEEE6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "Lab3\DataAccess\DataAccess.csproj", "{69C597E8-A840-4894-9007-46EB63BEEE6D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab4", "Lab4", "{6F085E34-CD40-4317-A248-FDB7D624C914}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
