@@ -1,10 +1,5 @@
 ﻿using ConsoleAppClient.ServiceReference1;
-using Lab4Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleAppClient
 {
