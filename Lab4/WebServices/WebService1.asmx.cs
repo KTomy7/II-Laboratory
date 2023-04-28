@@ -46,13 +46,13 @@ namespace Lab4Services
         [WebMethod]
         public float EuroToRon(float euro)
         {
-            return euro * 4.5f;
+            return euro * 4.93f;
         }
 
         [WebMethod]
         public float RonToEuro(float ron)
         {
-            return ron / 4.5f;
+            return ron / 4.93f;
         }
     }
 }
