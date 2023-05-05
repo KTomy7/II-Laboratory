@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetMovies">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMoviesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMoviesResult" type="tns:ArrayOfMovie" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMovie">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Movie" nillable="true" type="tns:Movie" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Movie">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Genre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Duration" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReleaseDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rating" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Watched" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetWatchedMovies">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetWatchedMoviesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWatchedMoviesResult" type="tns:ArrayOfMovie" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUnwatchedMovies">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUnwatchedMoviesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUnwatchedMoviesResult" type="tns:ArrayOfMovie" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMovieById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMovieByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMovieByIdResult" type="tns:Movie" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMovieByTitle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMovieByTitleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMovieByTitleResult" type="tns:Movie" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMovie">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="movie" type="tns:Movie" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMovieResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateMovie">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="movie" type="tns:Movie" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMovieResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteMovie">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="movie" type="tns:Movie" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMovieResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetMoviesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMovies" />
+  </wsdl:message>
+  <wsdl:message name="GetMoviesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMoviesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWatchedMoviesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWatchedMovies" />
+  </wsdl:message>
+  <wsdl:message name="GetWatchedMoviesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWatchedMoviesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUnwatchedMoviesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUnwatchedMovies" />
+  </wsdl:message>
+  <wsdl:message name="GetUnwatchedMoviesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUnwatchedMoviesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMovieByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMovieById" />
+  </wsdl:message>
+  <wsdl:message name="GetMovieByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMovieByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMovieByTitleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMovieByTitle" />
+  </wsdl:message>
+  <wsdl:message name="GetMovieByTitleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMovieByTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddMovieSoapIn">
+    <wsdl:part name="parameters" element="tns:AddMovie" />
+  </wsdl:message>
+  <wsdl:message name="AddMovieSoapOut">
+    <wsdl:part name="parameters" element="tns:AddMovieResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMovieSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMovie" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMovieSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMovieResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMovieSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMovie" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMovieSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMovieResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MoviesWebServiceSoap">
+    <wsdl:operation name="GetMovies">
+      <wsdl:input message="tns:GetMoviesSoapIn" />
+      <wsdl:output message="tns:GetMoviesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWatchedMovies">
+      <wsdl:input message="tns:GetWatchedMoviesSoapIn" />
+      <wsdl:output message="tns:GetWatchedMoviesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnwatchedMovies">
+      <wsdl:input message="tns:GetUnwatchedMoviesSoapIn" />
+      <wsdl:output message="tns:GetUnwatchedMoviesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMovieById">
+      <wsdl:input message="tns:GetMovieByIdSoapIn" />
+      <wsdl:output message="tns:GetMovieByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMovieByTitle">
+      <wsdl:input message="tns:GetMovieByTitleSoapIn" />
+      <wsdl:output message="tns:GetMovieByTitleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMovie">
+      <wsdl:input message="tns:AddMovieSoapIn" />
+      <wsdl:output message="tns:AddMovieSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMovie">
+      <wsdl:input message="tns:UpdateMovieSoapIn" />
+      <wsdl:output message="tns:UpdateMovieSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMovie">
+      <wsdl:input message="tns:DeleteMovieSoapIn" />
+      <wsdl:output message="tns:DeleteMovieSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MoviesWebServiceSoap" type="tns:MoviesWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMovies">
+      <soap:operation soapAction="http://tempuri.org/GetMovies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWatchedMovies">
+      <soap:operation soapAction="http://tempuri.org/GetWatchedMovies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnwatchedMovies">
+      <soap:operation soapAction="http://tempuri.org/GetUnwatchedMovies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMovieById">
+      <soap:operation soapAction="http://tempuri.org/GetMovieById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMovieByTitle">
+      <soap:operation soapAction="http://tempuri.org/GetMovieByTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMovie">
+      <soap:operation soapAction="http://tempuri.org/AddMovie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMovie">
+      <soap:operation soapAction="http://tempuri.org/UpdateMovie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMovie">
+      <soap:operation soapAction="http://tempuri.org/DeleteMovie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MoviesWebServiceSoap12" type="tns:MoviesWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMovies">
+      <soap12:operation soapAction="http://tempuri.org/GetMovies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWatchedMovies">
+      <soap12:operation soapAction="http://tempuri.org/GetWatchedMovies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnwatchedMovies">
+      <soap12:operation soapAction="http://tempuri.org/GetUnwatchedMovies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMovieById">
+      <soap12:operation soapAction="http://tempuri.org/GetMovieById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMovieByTitle">
+      <soap12:operation soapAction="http://tempuri.org/GetMovieByTitle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMovie">
+      <soap12:operation soapAction="http://tempuri.org/AddMovie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMovie">
+      <soap12:operation soapAction="http://tempuri.org/UpdateMovie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMovie">
+      <soap12:operation soapAction="http://tempuri.org/DeleteMovie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MoviesWebService">
+    <wsdl:port name="MoviesWebServiceSoap" binding="tns:MoviesWebServiceSoap">
+      <soap:address location="https://localhost:44312/MoviesWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MoviesWebServiceSoap12" binding="tns:MoviesWebServiceSoap12">
+      <soap12:address location="https://localhost:44312/MoviesWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
